@@ -7,21 +7,39 @@ import { useState } from "react";
 
 function App() {
   const [searchCountryValue, setSearchCountryValue] = useState("");
+  const [continentSelect, setContinentSelect] = useState("");
 
   const handleSearchCountryValue = (value) => {
     setSearchCountryValue(value);
   };
 
-  const filteredCountries = countryData.filter((countryInfo) => {
-    return countryInfo.name.official
-      .toLocaleLowerCase()
-      .includes(searchCountryValue.toLocaleLowerCase());
-  });
+  const handleContinentValue = (value) => {
+    setContinentSelect(value);
+  };
+  // const filteredContinets = countryData.filter((countryInfo) => {
+  //   return countryInfo.continents[0].includes(
+  //    continentSelect.toLocaleLowerCase()
+  //  );
+  //});
+
+  const filteredCountries = countryData
+    .filter((countryInfo) => {
+      return countryInfo.name.official
+        .toLowerCase()
+        .includes(searchCountryValue.toLowerCase());
+    })
+    .filter((country) => {
+      return continentSelect ? country.continents[0] === continentSelect : true;
+    });
+
   return (
     <>
       <Header />
       <main>
-        <Filter handleChangeCountryValue={handleSearchCountryValue} />
+        <Filter
+          handleChangeCountryValue={handleSearchCountryValue}
+          handleContinentSelectValue={handleContinentValue}
+        />
         <CountryList countryInfo={filteredCountries} />
       </main>
     </>

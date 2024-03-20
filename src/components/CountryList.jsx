@@ -4,8 +4,8 @@ import "../scss/components/CountryList.scss";
 function CountryList({ countryInfo }) {
   return (
     <div className="countryList">
-      {countryInfo.map((countryInfo, i) => {
-        return <Country countryInfo={countryInfo} key={i} />;
+      {countryInfo.map((country, i) => {
+        return <Country countryInfo={country} key={i} />;
       })}
     </div>
   );
