@@ -1,0 +1,19 @@
+.country {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    text-wrap: wrap;
+    text-align: center;
+  }
+
+  h4 {
+    text-align: center;
+  }
+}
