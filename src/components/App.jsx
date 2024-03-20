@@ -16,11 +16,6 @@ function App() {
   const handleContinentValue = (value) => {
     setContinentSelect(value);
   };
-  // const filteredContinets = countryData.filter((countryInfo) => {
-  //   return countryInfo.continents[0].includes(
-  //    continentSelect.toLocaleLowerCase()
-  //  );
-  //});
 
   const filteredCountries = countryData
     .filter((countryInfo) => {
